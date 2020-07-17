@@ -36,3 +36,9 @@ composer require roave/security-advisories:dev-master
 	lsof -i tcp:8080
 Убить процесс:
 	kill -9 <pid процесса>
+	
+Установить в проект поддержку psr-7
+	composer require psr/http-message
+	
+Готовая реализация интерфейсов PSR-7
+	composer require zendframework/zend-diactoros
