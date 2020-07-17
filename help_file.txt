@@ -1,1 +1,38 @@
+Запустить встроенный сервер PHP:
 php -S 0.0.0.0:8080 -t public public/index.php
+
+Сгенерировать composer.json:
+composer init
+
+Установить зависимости и сгенерировать composer.lock:
+composer install
+
+Добавить зависимость roave/security-advisories:
+composer require roave/security-advisories:dev-master
+
+Автолоад в composer:
+	1. Прописываем в composer.json:
+	"autoload": {
+			"psr-4": {
+				"Framework\\" : "src/Framework"
+			}
+		}
+	2. composer dump-autoload
+
+Установка phpunit:
+	1. composer require --dev phpunit/phpunit
+		1.1 Если ошибка  - phpunit/phpunit 9.2.6 requires ext-dom, то 
+			sudo apt-get update
+			sudo apt install php-xml 
+			
+		1.2 Если ошибка   - phpunit/phpunit 9.2.6 requires ext-mbstring *, то 
+			sudo apt-get install php-mbstring
+		1.3 Если были эти ошибки, то composer update
+		
+Запустить тесты phpunit:
+	vendor/bin/phpunit
+	
+Узнать, какой demon запущен по порту 8080:
+	lsof -i tcp:8080
+Убить процесс:
+	kill -9 <pid процесса>

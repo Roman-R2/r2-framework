@@ -1,1 +1,4 @@
 /.idea
+/vendor/
+/phpunit.xml
+/help_file.txt

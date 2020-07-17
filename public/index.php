@@ -1,6 +1,15 @@
 <?php
-declare(strict_types=1);
+//declare(strict_types=1);
 
-$name = $GET['name'] ?? 'Guest';
+use Framework\Http\Request;
 
-echo "Hello $name!";
+chdir(dirname(__DIR__));
+require 'vendor/autoload.php';
+
+### Initialization
+$request = (new Request())->withQueryParams($_GET)->withParsedBody($_POST);
+
+### Action
+$name = $request->getQueryParams()['name'] ?? 'Guest';
+header('X-Developer: Roman');
+echo "Hello" . $name . PHP_EOL;
